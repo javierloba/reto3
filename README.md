@@ -1,6 +1,4 @@
-# Reto 3 bootcamp backend Python
+# Bootcamp backend Python
 
-El ejercicio consiste en crear un programa que muestre por consola la carta de un restaurante
-donde añadiremos diferentes platos y después escogeremos que queramos para comer. Una
-vez hecha esto se tendrá que calcular el precio de la comida, el programa nos tiene que decir
-con qué billetes y monedas tenemos que pagar.
+The exercise consists of creating a program that shows by console the menu of a restaurant where we will add different dishes and then we will choose what we want to eat.
+Once this is done we will have to calculate the price of the meal, the program will have to tell us with which bills we have to pay.
