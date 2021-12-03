@@ -1,6 +1,6 @@
-# Fase 1
+# Part 1
 
-# 1 Establecer variables
+# 1 Setting variables & arrays
 
 b5: int = 5
 b10: int = 10
@@ -10,48 +10,81 @@ b100: int = 100
 b200: int = 200
 b500: int = 500
 
-precio_total = 0
+total_price = 0
 
-seguirPidiendo = True
+next_command = True
 
-# 2 Arrays
 menu = []
-precio_plato = []
-comanda = []
+dish_price = []
+command = []
 
-# Llenado de datos
+note_amount = ""
+
+# Data filling
 for i in range(3):
-    plato = input("Introduce un plato en el menú: ")
-    precio = int(input("Introduce el precio de " + plato + ": "))
+    dish = input("Enter a dish in the menu: ")
+    price = int(input("Please, enter the price for " + dish + ": "))
 
-    menu.append(plato)
-    precio_plato.append(precio)
+    menu.append(dish)
+    dish_price.append(price)
 
-# pendiente: mostrar carta al usuario
+# pending: show menu to user
 
-# Elegir comida
-while(seguirPidiendo):
-    peticion = input("Qué quieres comer?: ")
-    if peticion in menu:
-        comanda.append(peticion)
+# Command
+while next_command:
+    order = input("What do you want to eat?: ")
+    if order in menu:
+        command.append(order)
     else:
-        print("No tenemos ese plato!")
+        print("We don't have that dish!")
 
-    print(comanda)
+    print(command)
 
-    terminar = input("Has terminado de pedir(1= SI / 0= NO): ")
+    end = input("Finished ordering? (1= Y / 0= N): ")
 
-    if (terminar == "1"):
-        seguirPidiendo = False
+    if end == "1":
+        next_command = False
     else:
-        seguirPidiendo = True
+        next_command = True
 
-# Cobrar
-for plato in comanda:
+# Payment
+for dishes in command:
     i = 0
     for item in menu:
-        if plato == item:
-            precio_total += precio_plato[i]
+        if dishes == item:
+            total_price += dish_price[i]
         i += 1
 
-print(f'Factura: {precio_total}€')
+print(f'Bill: {total_price}€')
+
+while total_price > 0:
+    if total_price >= b500:
+        num = int(total_price // b500)
+        total_price = round(total_price % b500, 2)
+        note_amount += f'{num} 500 euro banknotes. '
+    if total_price >= b200:
+        num = int(total_price // b200)
+        total_price = round(total_price % b200, 2)
+        note_amount += f'{num} 200 euro banknotes. '
+    if total_price >= b100:
+        num = int(total_price // b100)
+        total_price = round(total_price % b100, 2)
+        note_amount += f'{num} 100 euro banknotes. '
+    if total_price >= b50:
+        num = int(total_price // b50)
+        total_price = round(total_price % b50, 2)
+        note_amount += f'{num} 50 euro banknotes. '
+    if total_price >= b20:
+        num = int(total_price // b20)
+        total_price = round(total_price % b20, 2)
+        note_amount += f'{num} 20 euro banknotes. '
+    if total_price >= b10:
+        num = int(total_price // b10)
+        total_price = round(total_price % b10, 2)
+        note_amount += f'{num} 10 euro banknotes. '
+    if total_price >= b5:
+        num = int(total_price // b5)
+        total_price = round(total_price % b5, 2)
+        note_amount += f'{num} 5 euro banknotes. '
+
+print(note_amount)
