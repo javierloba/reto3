@@ -28,7 +28,10 @@ for i in range(3):
     menu.append(dish)
     dish_price.append(price)
 
-# pending: show menu to user
+# Show menu to user
+
+dict_menu = dict(zip(menu, dish_price))
+print(dict_menu)
 
 # Command
 while next_command:
